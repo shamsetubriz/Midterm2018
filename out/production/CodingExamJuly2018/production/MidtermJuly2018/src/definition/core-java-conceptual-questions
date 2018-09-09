@@ -4,12 +4,19 @@ What is programing language?
 A.
 What jdk contains or composed of and define each components?
 What is IDE?
+A. IDE stands for Integrated Development Environment. It is a software suits that has all the
+basic tools to write and test software.
 What are the IDEs available in the market to support java?
+
 Explain the entire java life cycle.
 what is class?
+A. Class is the blueprint of objects that describes the behavior of that object.
 What is object?
+A. An object is an instance of a class.
 What is the entry point of an application?
+A. The main method.
 Why main is static?
+A.
 Which class is the superclass of all classes?
 What is difference between path and classpath variables?
 What is the difference between an Interface and Abstract class?
