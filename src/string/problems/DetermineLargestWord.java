@@ -14,23 +14,30 @@ public class DetermineLargestWord {
         Map<Integer, String> wordNLength = findTheLargestWord(s);
         //implement
 
+        int largest = 0;
+        String largeValue = "";
+        for(Map.Entry<Integer, String> checkLength : wordNLength.entrySet()){
+            if(largest< checkLength.getKey()){
+                largest = checkLength.getKey();
+                largeValue = checkLength.getValue();
+            }
+        }
+        System.out.println("Largest word: "+largeValue+" length: "+largest);
+
+
     }
 
     public static Map<Integer, String> findTheLargestWord(String wordGiven){
         Map<Integer, String> map = new HashMap<Integer, String>();
-        String [] word = wordGiven.split(" ");
-        String lw = " ";
-        for(int i = 0; i < word.length; i++){
-            for(int j = i; j < word.length; j++){
-                if(word[i].length() > word[j].length()){
-                    lw = word[i];
-                }
-            }
+        String st = "";
+        String[] split = wordGiven.split(" ");
+
+        for(int i = 0; i< split.length; i++){
+            map.put(split[i].length(),split[i]);
         }
-        System.out.println(lw);
-        System.out.println(lw.length());
-        //implement
 
         return map;
     }
+
+
 }
