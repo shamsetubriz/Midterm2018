@@ -54,8 +54,6 @@ public class FindLowestDifference {
         //Call function to print smallest result
         System.out.println(findSmallestDifference(A, B, m, n));
 
-
-
     }
 
 }
