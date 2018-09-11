@@ -2,7 +2,7 @@ package design;
 
 import java.util.Scanner;
 
-public class EmployeeInfo extends DistinguishedEmployee implements Employee{
+public class EmployeeInfo extends DistiguishedEmployee{
 	
  /*This class can be implemented from Employee interface then add additional methods in EmployeeInfo class.
  * Also, Employee interface can be implemented into an abstract class.So create an Abstract class
@@ -21,23 +21,103 @@ public class EmployeeInfo extends DistinguishedEmployee implements Employee{
 	 * declare few static and final fields and some non-static fields
 	 */
 	static String companyName;
-	
+	private int employeeId;
+	private String Name;
+	private double Salary;
+	private String departmentName;
+	private int employeePerfotmance;
+
 	/*
-	 * You must implement the logic for below 2 methods and 
+	 * You must implement the logic for below 2 methods and
 	 * following 2 methods are prototype as well for other methods need to be design,
 	 * as you will come up with the new ideas.
 	 */
-	
+
 	/*
 	 * you must have multiple constructor.
 	 * Must implement below constructor.
 	 */
+
 	public EmployeeInfo(int employeeId){
-		
+		this.employeeId = employeeId;
+
 	}
-    public EmployeeInfo(String name, int employeeId){
-		
+	public EmployeeInfo(String name, int employeeId){
+		this.Name = name;
+		this.employeeId = employeeId;
+
 	}
+
+	public static String getCompanyName() {
+		return companyName;
+	}
+
+	public static void setCompanyName(String companyName) {
+		EmployeeInfo.companyName = companyName;
+	}
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+
+	public String getName() {
+		return Name;
+	}
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+	public double getEmployeeSalary() {
+		return Salary;
+	}
+
+	public void setEmployeeSalary(double Salary) {
+		this.Salary = Salary;
+	}
+
+	public String getDepartmentName() {
+		return departmentName;
+	}
+
+	public void setDepartmentName(String departmentName) {
+		this.departmentName = departmentName;
+	}
+
+	public int getEmployeePerfotmance() {
+		return employeePerfotmance;
+	}
+
+	public void setEmployeePerfotmance(int employeePerfotmance) {
+		this.employeePerfotmance = employeePerfotmance;
+	}
+
+	//following method will calculate employee yearly salary.
+	public double calculateSalary(double salary){
+		double yearlySalary = salary * 12;
+		return yearlySalary;
+
+	}
+
+	//following method will calculate employee benefit
+	public void benefitLayout() {
+		System.out.println("Employee gets 3 weeks of paid vacation.");
+	}
+
+
+	//designatedDepartment() method will assign employee to their department.
+
+
+
+
+
+	
+
+
 	
 	/*
 	 * This methods should calculate Employee bonus based on salary and performance.
@@ -47,10 +127,25 @@ public class EmployeeInfo extends DistinguishedEmployee implements Employee{
 	 * So you probably need to send 2 arguments.
 	 * 
 	 */
-	public static int calculateEmployeeBonus(int numberOfYearsWithCompany){
-		int total=0;
-		return total;
-	}
+	public static double calculateEmployeeBonus(int numberOfYearsWithCompany, double salary){
+
+			double yearlyBonus = 0;
+			if (numberOfYearsWithCompany == 10) {
+				yearlyBonus = salary * 0.15 * 12;
+			} else if (numberOfYearsWithCompany == 8) {
+				yearlyBonus = salary * 0.1 * 12;
+			} else if (numberOfYearsWithCompany == 5) {
+				yearlyBonus = salary * 0.08 * 12;
+			} else if (numberOfYearsWithCompany == 2) {
+				yearlyBonus = 0;
+				System.out.println("Your performance is poor, try to improve.");
+			} else {
+				yearlyBonus = 0;
+				System.out.println("You are fired.");
+			}
+			return yearlyBonus;
+		}
+
 	
 	/*
 	 * This methods should calculate Employee Pension based on salary and numbers of years with the company.
@@ -73,31 +168,39 @@ public class EmployeeInfo extends DistinguishedEmployee implements Employee{
 
 		return total;
 	}
-	//Following 5 methods are implemented here from the Employee interface.
+
+	//following method is implemented from the abstract class.
+	public void aboutCompany(){
+		companyName = "Electric Boat";
+		System.out.println(companyName + " was founded by " + ownerName + " in the year of " + foundingYear + " in " + location);
+	}
+
+	@Override
 	public int employeeId() {
 		return 0;
 	}
 
+	@Override
 	public String employeeName() {
 		return null;
 	}
 
+	@Override
 	public void assignDepartment() {
 
 	}
 
+	@Override
 	public int calculateSalary() {
 		return 0;
 	}
 
-	public void benefitLayout() {
+
+	@Override
+	public void aboutCompany(String globalBrances) {
 
 	}
 
-	//this is the abstract method from the DistinguishedEmployee abstract class.
-	public void becomeCeo() {
-
-	}
 
 	private static class DateConversion {
 
