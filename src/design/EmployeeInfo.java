@@ -26,6 +26,7 @@ public class EmployeeInfo extends DistiguishedEmployee{
 	private double Salary;
 	private String departmentName;
 	private int employeePerfotmance;
+	private int numberOfYears;
 
 	/*
 	 * You must implement the logic for below 2 methods and
@@ -72,21 +73,23 @@ public class EmployeeInfo extends DistiguishedEmployee{
 		Name = name;
 	}
 
-	public double getEmployeeSalary() {
+	public double getSalary() {
 		return Salary;
 	}
 
-	public void setEmployeeSalary(double Salary) {
-		this.Salary = Salary;
+	public void setSalary(double salary) {
+		Salary = salary;
 	}
 
-	public String getDepartmentName() {
-		return departmentName;
+
+	public int getNumberOfYears() {
+		return numberOfYears;
 	}
 
-	public void setDepartmentName(String departmentName) {
-		this.departmentName = departmentName;
+	public void setNumberOfYears(int numberOfYears) {
+		this.numberOfYears = numberOfYears;
 	}
+
 
 	public int getEmployeePerfotmance() {
 		return employeePerfotmance;
@@ -153,8 +156,8 @@ public class EmployeeInfo extends DistiguishedEmployee{
 	 * Hints: pension will be 5% of the salary for 1 year, 10% for 2 years with the company and so on.
 	 * 
 	 */
-	public static int calculateEmployeePension(){
-		int total=0;
+	public static double calculateEmployeePension(double salary){
+		double total=0;
 		Scanner sc  = new Scanner(System.in);
 		System.out.println("Please enter start date in format (example: May,2015): ");
 		String joiningDate = sc.nextLine();
@@ -165,9 +168,35 @@ public class EmployeeInfo extends DistiguishedEmployee{
 
         //implement numbers of year from above two dates
 		//Calculate pension
+		String startYear = convertedJoiningDate.substring(convertedJoiningDate.length() - 4, convertedJoiningDate.length());
+		String currentYear = convertedTodaysDate.substring(convertedTodaysDate.length() - 4, convertedTodaysDate.length());
+
+		int start = Integer.parseInt(startYear);
+		int current = Integer.parseInt(currentYear);
+
+		//Calculate pension
+		int numberOfYears = current - start;
+
+		if (numberOfYears >= 10) {
+			total = salary * .35;
+		} else if (numberOfYears == 8) {
+			total = salary * .30;
+		} else if (numberOfYears == 5) {
+			total = salary * .25;
+		} else if (numberOfYears == 3) {
+			total = salary * .15;
+		} else if (numberOfYears == 1) {
+			total = salary * .05;
+		} else if (numberOfYears == 0) {
+			total = 0;
+		}
+		System.out.println("Total pension: $" + total);
+
 
 		return total;
 	}
+
+
 
 	//following method is implemented from the abstract class.
 	public void aboutCompany(){
@@ -188,6 +217,14 @@ public class EmployeeInfo extends DistiguishedEmployee{
 	@Override
 	public void assignDepartment() {
 
+	}
+
+
+	public void assignDepartment(String departmentName) {
+		this.departmentName = departmentName;
+	}
+	public String getDepartmentName(){
+		return departmentName;
 	}
 
 	@Override
@@ -236,22 +273,22 @@ public class EmployeeInfo extends DistiguishedEmployee{
 					date = 6;
 					break;
 				case July:
-					date = 1;
+					date = 7;
 					break;
 				case August:
-					date = 1;
+					date = 8;
 					break;
 				case September:
-					date = 1;
+					date = 9;
 					break;
 				case October:
-					date = 1;
+					date = 10;
 					break;
 				case November:
-					date = 1;
+					date = 11;
 					break;
 				case December:
-					date = 1;
+					date = 12;
 					break;
 				default:
 					date = 0;
