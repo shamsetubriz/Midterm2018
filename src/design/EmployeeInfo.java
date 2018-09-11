@@ -130,7 +130,7 @@ public class EmployeeInfo extends DistiguishedEmployee{
 	 * So you probably need to send 2 arguments.
 	 * 
 	 */
-	public static double calculateEmployeeBonus(int numberOfYearsWithCompany, double salary){
+	public static double calculateEmployeeBonus(double salary, int numberOfYearsWithCompany){
 
 			double yearlyBonus = 0;
 			if (numberOfYearsWithCompany == 10) {
