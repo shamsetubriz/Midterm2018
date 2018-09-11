@@ -2,7 +2,9 @@ package datastructure;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 
 public class UseArrayList {
 
@@ -48,10 +50,11 @@ public class UseArrayList {
 			System.out.println(i);
 		}
 
-
-
-
-
+		//Sorting ArrayList
+		Collections.sort(arList);
+		System.out.println(arList);
+		List list = new ArrayList();
+		list = arList;
 
 
 
