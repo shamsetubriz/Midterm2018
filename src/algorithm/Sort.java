@@ -76,6 +76,52 @@ public class Sort {
         
         return list;
     }
+    void merge(int list[], int low, int middle, int high)
+    {
+        int i, j, k;
+        int leftArrayLength = middle - low + 1;
+        int rightArrayLength =  high - middle;
+
+        int[] leftArray=new int[leftArrayLength];
+        int[] rightArray = new int[rightArrayLength];
+
+        for (i = 0; i < leftArrayLength; i++)
+            leftArray[i] = list[low + i];
+        for (j = 0; j < rightArrayLength; j++)
+            rightArray[j] = list[middle + 1+ j];
+
+        i = 0;
+        j = 0;
+        k = low;
+        while (i < leftArrayLength && j < rightArrayLength)
+        {
+            if (leftArray[i] <= rightArray[j])
+            {
+                list[k] = leftArray[i];
+                i++;
+            }
+            else
+            {
+                list[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < leftArrayLength)
+        {
+            list[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        while (j < rightArrayLength)
+        {
+            list[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
     
 
     public int [] mergeSort(int [] array, int firstIndex, int lastIndex){
@@ -104,17 +150,81 @@ public class Sort {
     
 
     public int [] quickSort(int [] array){
+        final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
-        
-        
+        int left=0;
+        int right=0;
+        int i = left, j = right;
+        int tmp;
+        int pivot = array[(left + right) / 2];
+        while (i <= j) {
+            while (array[i] < pivot)
+                i++;
+            while (array[j] > pivot)
+                j--;
+            if (i <= j) {
+                tmp = array[i];
+                array[i] = array[j];
+                array[j] = tmp;
+                i++;
+                j--;
 
+            }
+
+        }
+
+
+        final long endTime = System.currentTimeMillis();
+        final long executionTime = endTime - startTime;
+        this.executionTime = executionTime;
+        
         return list;
+    }
+
+    void heapify(int list[], int arrayLength, int rootIndex)
+    {
+        int largest = rootIndex;
+        int leftNodeIndex = 2*rootIndex + 1;
+        int rightNodeIndex = 2*rootIndex + 2;
+
+
+        if (leftNodeIndex < arrayLength && list[leftNodeIndex] > list[largest])
+            largest = leftNodeIndex;
+
+        if (rightNodeIndex < arrayLength && list[rightNodeIndex] > list[largest])
+            largest = rightNodeIndex;
+
+
+        if (largest != rootIndex)
+        {
+            int temp = list[rootIndex];
+            list[rootIndex] = list[largest];
+            list[largest] = temp;
+
+            heapify(list, arrayLength, largest);
+        }
     }
     
-    public int [] heapSort(int [] array){
+    public int [] heapSort(int [] array, int arrayLength){
+        final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
+        for (int i=arrayLength-1; i>=0; i--)
+        {
+            int temp =list[0];
+            list[0] = list[i];
+            list[i] = temp;
+
+            heapify(list, i, 0);
+
+
+        }
+
+
+        final long endTime = System.currentTimeMillis();
+        final long executionTime = endTime - startTime;
+        this.executionTime = executionTime;
         
         
 
@@ -122,9 +232,34 @@ public class Sort {
     }
 
 
-    public int [] bucketSort(int [] array){
+    public int [] bucketSort(int [] array,int maxArrayElementValue){
+        final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
+        int max = maxArrayElementValue;
+        int [] bucket=new int[max+1];
+
+        for (int i=0; i<bucket.length; i++) {
+            bucket[i]=0;
+        }
+
+        for (int i=0; i<list.length; i++) {
+            bucket[list[i]]++;
+        }
+
+        int position=0;
+        for (int i=0; i<bucket.length; i++) {
+            for (int j=0; j<bucket[i]; j++) {
+                list[position++]=i;
+            }
+        }
+
+
+
+        final long endTime = System.currentTimeMillis();
+        final long executionTime = endTime - startTime;
+        this.executionTime = executionTime;
+
         
         
 

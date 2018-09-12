@@ -1,18 +1,41 @@
 Please answer the below Data Structure Questions:
 
 why do we need data structure?
-A.
+A. We need data structure for sorting and organizing data in a computer to retrieve or update as per needed.
+
 What are the various operations that can be performed on different Data Structures?
+A. Sorting, Insertion, Deletion, Merging, Traversing.
+
 List out the areas in which data structures are applied extensively?
+A. Operating System, Database Management System, Statistical analysis package, Numerical Analysis,
+   Graphics, Artificial Intelligence, Simulation.
+
 what is an Array?
+A. An array in programming is a collection of data/value which has index associated with it.An array shall contain similar
+   types of data, an array can be sorted or un sorted.
+
+what is the difference between the Array and ArrayList?
+A.
+
 what is the difference between the Array and ArrayList?
 what is LinkedList?
 How is an Array different from Linked List?
 what is queue?
+A.  It is a linear data structure where elements can be accessed  ob the basis of FIFO.
+
 what is stack?
+A.  Stack is linear data structure where elements can be accessed on the basis of LIFO.
+
 what is FIFO and LIFO?
+A. FIFO: First in first out. Example: In Queue data can be accessed by FIFO method.LIFO: Last in first out. Example:
+   In Stack elements can be accessed on the basis of LIFO.
+
 what is the order of complexity?
+A.  For input is of size N, we can say that the algorithm will finish at O(1), O(N), O(N^2), O(N^3), O(N*log(N)) etc.
+    what is the best case to search an element from an array?
+
 what is the best case to search an element from an array?
+A.
 what is the worst case to search an element from an array?
 what is tree in data structure?
 what is graph in data structure?
