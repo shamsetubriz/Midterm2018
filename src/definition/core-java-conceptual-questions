@@ -193,16 +193,21 @@ What is constructor chaining in Java?
 A.  Constructor chaining is the process of calling one constructor from another constructor with respect to current object.
 
 The difference between Serial and Parallel Garbage Collector?
-A.
+A.  a serial collector is a default copying collector which uses only one GC thread for the GC operation,
+    while a parallel collector uses multiple GC threads for the GC operation.
 
 What is JIT stands for?
-A.
+A.  JIT stands for Just In Time.
 
 Explain Java Heap space and Garbage collection?
-A.
+A.  Java objects reside in an area called the heap. The heap is created when the JVM starts up and may increase or decrease in size while the application runs.
+    When the heap becomes full, garbage is collected. During the garbage collection objects that are no longer used are cleared, thus making space for new objects.
+    The heap is sometimes divided into two areas (or generations) called the nursery (or young space) and the old space. The nursery is a part of the heap
+    reserved for allocation of new objects. When the nursery becomes full, garbage is collected by running a special young collection, where all objects that have
+    lived long enough in the nursery are promoted (moved) to the old space, thus freeing up the nursery for more object allocation. When the old space becomes full garbage is collected there, a process called an old collection.
 
 Can you guarantee the garbage collection process?
-A.
+A.  No.
 
 What is the difference between stack and heap in Java?
 A.
@@ -223,13 +228,18 @@ What are the testing Framework available in java?
 A.
 
 Difference between jUnit and testNG?
-A.
+A.  TestNG supports parallel testing, while JUnit does not have such a feature.
+    The process of parameterized test configuration in TestNG is easier than in JUnit (it requires more time and effort).
+    JUnit does not support group test, while in TestNG, the specialists are able to administrate certain tests to a large group of people at the same time.
+    TestNG supports the dependency tests with the help of such attributes – dependsOnMethods or dependsOnGroup. JUnit does not support this function.
+    JUnit is not able to support special annotations that TestNG can. They are @AfterGroups, @AfterSuite, @AfterTest, @BeforeTest, @BeforeSuite, @BeforeGroups.
 
 What are the dependencies for this project?
-A.
+A.  1. mongo, 2. mysql, 3. testng.
 
 what is dependency injection in java?
-A.
+A.  The general concept behind dependency injection is called Inversion of Control. According to this concept
+    a class should not configure its dependencies statically but should be configured from the outside.
 
 What is static binding and dynamic binding?
 A.
