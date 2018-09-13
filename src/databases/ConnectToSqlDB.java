@@ -186,7 +186,7 @@ public class ConnectToSqlDB {
         User user = null;
         try{
             Connection conn = connectToSqlDatabase();
-            String query = "SELECT * FROM Students";
+            String query = "SELECT * FROM student";
             // create the java statement
             Statement st = conn.createStatement();
             // execute the query, and get a java resultset
