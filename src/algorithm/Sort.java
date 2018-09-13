@@ -47,7 +47,6 @@ public class Sort {
         }
 
 
-
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
         this.executionTime = executionTime;
@@ -76,6 +75,8 @@ public class Sort {
         
         return list;
     }
+
+    //merge sort
     void merge(int list[], int low, int middle, int high)
     {
         int i, j, k;
@@ -143,36 +144,37 @@ public class Sort {
         final long executionTime = endTime - startTime;
         this.executionTime = endTime - startTime;
 
-        
 
         return list;
     }
     
-
-    public int [] quickSort(int [] array){
+    //quick sort
+    public int [] quickSort(int [] array,int low, int high){
         final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
-        int left=0;
-        int right=0;
-        int i = left, j = right;
-        int tmp;
-        int pivot = array[(left + right) / 2];
-        while (i <= j) {
-            while (array[i] < pivot)
+        int mid = low + (high - low) / 2;
+        int pivot = array[mid];
+        int i = low, j = high;
+        while (i<=j){
+            while (array[i] < pivot){
                 i++;
-            while (array[j] > pivot)
-                j--;
-            if (i <= j) {
-                tmp = array[i];
-                array[i] = array[j];
-                array[j] = tmp;
-                i++;
-                j--;
-
             }
-
+            while (array[j] > pivot){
+                j--;
+            }
+            if (i <= j){
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
+            }
         }
+        if (low < j)
+            quickSort(array, low, j);
+        if (high > i)
+            quickSort(array, i, high);
 
 
         final long endTime = System.currentTimeMillis();
@@ -182,50 +184,50 @@ public class Sort {
         return list;
     }
 
-    void heapify(int list[], int arrayLength, int rootIndex)
+    public void heapify(int array[], int n, int i)
     {
-        int largest = rootIndex;
-        int leftNodeIndex = 2*rootIndex + 1;
-        int rightNodeIndex = 2*rootIndex + 2;
+        int largest = i;
+        int left = 2*i + 1;
+        int right = 2*i + 2;
 
+        if (left < n && array[left] > array[largest])
+            largest = left;
 
-        if (leftNodeIndex < arrayLength && list[leftNodeIndex] > list[largest])
-            largest = leftNodeIndex;
+        if (right < n && array[right] > array[largest])
+            largest = right;
 
-        if (rightNodeIndex < arrayLength && list[rightNodeIndex] > list[largest])
-            largest = rightNodeIndex;
-
-
-        if (largest != rootIndex)
+        if (largest != i)
         {
-            int temp = list[rootIndex];
-            list[rootIndex] = list[largest];
-            list[largest] = temp;
-
-            heapify(list, arrayLength, largest);
+            int swap = array[i];
+            array[i] = array[i];
+            array[largest] = swap;
+            heapify(array, n, largest);
         }
     }
     
-    public int [] heapSort(int [] array, int arrayLength){
+    public int [] heapSort(int [] array){
         final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
-        for (int i=arrayLength-1; i>=0; i--)
+        int n = array.length;
+
+        for (int i = n/2-1; i>=0; i--)
+        heapify(array, n, i);
+
+        for (int i = n - 1; i >= 0; i--)
         {
-            int temp =list[0];
-            list[0] = list[i];
-            list[i] = temp;
+            int temp =array[0];
+            array[0] = array[i];
+            array[i] = temp;
 
             heapify(list, i, 0);
 
-
         }
 
 
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
         this.executionTime = executionTime;
-        
         
 
         return list;
@@ -267,10 +269,33 @@ public class Sort {
     }
     
     public int [] shellSort(int [] array){
+        final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
-        
-        
+        int inn, out;
+        int temp;
+        int n = 1;
+
+        while (n <= array.length / 3){
+            n = n * 3 + 1;
+        }
+        while (n > 0){
+            for (out = n; out < array.length; out++){
+                temp = array[out];
+                inn = out;
+
+                while (inn > n-1 && array[inn - n] >= temp){
+                    array[inn] = array[inn - n];
+                    inn -=n;
+                }
+                array[inn] = temp;
+            }
+            n = (n - 1) / 3;
+        }
+
+        final long endTine = System.currentTimeMillis();
+        final long executionTime = endTine - startTime;
+        this.executionTime = executionTime;
 
         return list;
     }
