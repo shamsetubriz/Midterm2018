@@ -88,10 +88,13 @@ A.  An exception (or exceptional event) is a problem that arises during the exec
     Java provides specific key words for exception handling and those are: throw, throws, try-catch, finally.
 
 What is static keyword in java? How it has been used in variables and methods ?
-A.
+A.  The static keyword denotes that a member variable, or method, can be accessed without creating an instantiation
+    of the class to which it belongs. when static key word is used with a method that method can be called without creating
+    a object.
 
 What is final and how it has been used variables and methods?
-A.
+A.  final class cannot be subclassed. A final variable can only be initialized once.A final method cannot be overridden
+    by subclasses.
 
 What is final, finally and finalize?
 A.  final: Final is used to apply restrictions on class, method and variable. Final class can't be inherited, final
@@ -210,22 +213,28 @@ Can you guarantee the garbage collection process?
 A.  No.
 
 What is the difference between stack and heap in Java?
-A.
+A.  The main difference between heap and stack is that stack memory is used to store local variables and function call
+    while heap memory is used to store objects in Java.
 
 What is reflection in java and why is it useful?
-A.
+A.  Reflection is an API which is used to examine or modify the behavior of methods, classes, interfaces at runtime.
+
 
 what is multithreading in java?
-A.
+A.  Multithreading is a Java feature that allows concurrent execution of two or more parts of a program for maximum
+    utilization of CPU.Each part of such program is called a thread. So, threads are light-weight processes within a process.
+
 
 What is the use of synchronization in Java?
-A.
+A.  With respect to multithreading, synchronization is the capability to control the access of multiple threads to shared
+    resources.
 
 What is Framework?
-A.
+A.  Java Frameworks are nothing but large bodies of predefined Java code which we can apply to our own code to solve
+    the problem in a specific domain.
 
 What are the testing Framework available in java?
-A.
+A.  Selenium, JUnit, testng, mockito, jwalk, Cucumber, Spring Test etc.
 
 Difference between jUnit and testNG?
 A.  TestNG supports parallel testing, while JUnit does not have such a feature.
@@ -242,7 +251,8 @@ A.  The general concept behind dependency injection is called Inversion of Contr
     a class should not configure its dependencies statically but should be configured from the outside.
 
 What is static binding and dynamic binding?
-A.
+A.  static occurs during compile time, dynamic during run time.
+
 
 
 

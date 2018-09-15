@@ -54,8 +54,10 @@ A.  For input is of size N, we can say that the algorithm will finish at O(1), O
     what is the best case to search an element from an array?
 
 what is the best case to search an element from an array?
-A.
+A.  Best case - you find it (assuming you only need to find one) on the first comparison.
+
 what is the worst case to search an element from an array?
+A.
 
 what is tree in data structure?
 A.  A tree is a nonlinear data structure where as arrays, linked lists, stacks and queues which are
