@@ -90,9 +90,9 @@ public class FortuneEmployee {
 		List<String> empRec = connectDB.readDataBase("employee_record", "employee_id", "employee_info");
 		for (String emp : empRec) {
 			System.out.println(emp);
-		}
+		}*/
 
-		*/
+
 
 
 	}
