@@ -57,7 +57,7 @@ public class UnitTestSorting {
 
         int[] unSortedArray3 = {6, 9, 2, 5, 1, 0, 4};
         int[] sortedArray3 =   {0, 1, 2, 4, 5, 6, 9};
-        sort.heapSort(unSortedArray3);
+        sort.heapSort(unSortedArray3, unSortedArray3.length);
         try {
             Assert.assertEquals(sortedArray3, unSortedArray3, "Array of Heap Sort is not Sorted");
         } catch (Exception ex) {
